@@ -92,3 +92,44 @@ Content-Type: application/json
 Events: Push events
 
 Active: ✅ Enabled
+
+
+
+
+
+Docker Installation on EC2 (Amazon Linux 2023)
+
+Update system:
+
+sudo dnf update -y
+
+
+Install Docker:
+
+sudo dnf install -y docker
+
+
+Start and enable Docker service:
+
+sudo systemctl start docker
+sudo systemctl enable docker
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Problems Faced & Solutions
+Problem	Cause	Solution
+Git push rejected	Remote repo had commits not present locally	Used git push --force to overwrite
+Docker installation failed	Amazon Linux 2023 does not have docker.io package	Installed Docker using dnf install docker
+HTTPS push authentication fails	GitHub no longer supports username/password	Used Personal Access Token (PAT) or SSH key for authentication
+EC2 reboot lost HTTPS credentials	Temporary credential cache lost	Switched to SSH authentication for permanent access
